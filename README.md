@@ -1,4 +1,4 @@
 learing-angularjs
 =================
 
-step by step buiding web/app with AngularJS
+###Step by step buiding web/app with AngularJS
