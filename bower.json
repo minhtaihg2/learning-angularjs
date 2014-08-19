@@ -7,6 +7,7 @@
     "font-awesome": "~4.1.0",
     "angular-ui-router": "~0.2.10",
     "angular-resource": "~1.2.22",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "angular-collection": "~0.5.0"
   }
 }

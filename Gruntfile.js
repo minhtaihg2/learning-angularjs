@@ -18,7 +18,8 @@ module.exports = function(grunt) {
         connect: {
             serve: {
                 port: 9001,
-                base: 'app'
+                base: 'app',
+                target: 'localhost:9001'
             }
         }
     })

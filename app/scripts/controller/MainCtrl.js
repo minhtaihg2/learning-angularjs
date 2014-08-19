@@ -5,10 +5,15 @@
 'use strict'
 
 angular.module('myApp')
-    .controller('MainCtrl', ['$scope', '$http', 'appConfig', 'ServiceResource', 'getData', function ($scope, $http, appConfig, ServiceResource, getData) {
+    .controller('MainCtrl', ['$scope', '$http', 'appConfig', 'ServiceResource', 'getData', 'dataStorage', function ($scope, $http, appConfig, ServiceResource, getData, dataStorage) {
+        if (dataStorage.Products.size() > 0) {
+            $scope.listProducts = dataStorage.Products.all();
+        } else {
+            getData.getDataTable('Products').then(function (result) {
+                console.log('result :', result);
+                $scope.listProducts = result.data;
+                dataStorage.Products.addAll(result.data)
+            })
+        }
 
-        getData.getDataTable('Products').then(function (result) {
-            console.log('result :',result);
-            $scope.listProducts = result.data;
-        })
     }])
