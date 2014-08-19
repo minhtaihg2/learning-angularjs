@@ -5,7 +5,8 @@
 'use strict'
 
 angular.module('myApp', [
-    'ui.router'
+    'ui.router',
+    'ngResource'
 ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/index.html');
     $locationProvider.html5Mode(true);

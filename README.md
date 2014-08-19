@@ -35,3 +35,19 @@ bower.json
   }
 }
 ```
+
+### Create ReourceService
+
+```javascript
+ return $resource(appConfig.apiHost + '/:api/:table/:id',
+            {
+                api: 'api',
+                table: '@table',
+                id: '@id'
+            }
+            , { 'get': {method: 'GET', params: {}},
+                'save': {method: 'POST', params: {}},
+                'query': {method: 'GET', isArray: true},
+                'remove': {method: 'DELETE', params: {}},
+                'delete': {method: 'DELETE', params: {}} })
+```
