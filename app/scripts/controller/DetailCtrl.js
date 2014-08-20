@@ -6,8 +6,9 @@
 'use strict'
 
 angular.module('myApp')
-    .controller('DetailCtrl', ['$scope', '$stateParams', 'getData','dataStorage', function ($scope, $stateParams, getData,dataStorage) {
+    .controller('DetailCtrl', ['$scope', '$stateParams', 'getData','dataStorage','$location','$state', function ($scope, $stateParams, getData,dataStorage,$location,$state) {
         var _id = $stateParams.id;
+
         $scope.showEdit = false;
         if (dataStorage.Products.size() > 0) {
             $scope.item =  dataStorage.Products.get(_id);
@@ -19,6 +20,13 @@ angular.module('myApp')
             });
 
         }
+       /* var off = $scope.$on('$stateChangeStart', function(evt,  toState, toParams, fromState, fromParams) {
+            evt.preventDefault();
+            $state.params = toParams;
+            angular.copy($state.params, $stateParams);
+            off();
+        });
+        $location.path('chi-tiet/123').replace();*/
 
         $scope.quickEdit = false;
 
@@ -34,9 +42,9 @@ angular.module('myApp')
                     // create the notification
                     var notification = new NotificationFx({
                         wrapper: document.body,
-                        message: '<div class="ns-thumb"><img src="../images/user1.jpg"/></div><div class="ns-content"><p><a href="#">Thông báo</a> đăng sản phẩm thành công.</p></div>',
+                        message: '<div class="ns-thumb"><img style="width: 63px" src="../images/user1.jpg"/></div><div class="ns-content"><p><a>Thông báo</a> cập nhật sản phẩm thành công.</p></div>',
                         layout: 'other',
-                        ttl: 4000,
+                        ttl: 3000,
                         effect: 'thumbslider',
                         type: 'notice', // notice, warning, error or success
                         onClose: function () {

@@ -50,9 +50,7 @@ angular.module('myApp', [
         $rootScope.lengthCart = Cart.length;
         dataStorage.Products.update(item);
         console.log('Cart',Cart);
-    }
-
-
+    };
 
 }]).constant('appConfig', {
     apiHost: 'http://chris-ictu.tk:8000',

@@ -10,10 +10,9 @@ angular.module('myApp')
             $scope.listProducts = dataStorage.Products.all();
         } else {
             getData.getDataTable('Products').then(function (result) {
-                console.log('result :', result);
-                $scope.listProducts = result.data;
-                dataStorage.Products.addAll(result.data)
+                $scope.listProducts = result;
+                dataStorage.Products.addAll(result)
             })
         }
-
+        $scope.offAds = true;
     }])
