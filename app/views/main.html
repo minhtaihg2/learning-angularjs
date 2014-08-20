@@ -17,11 +17,11 @@
             <img style="height: 136px" src="{{getUrlImages(item.listMedia)}}" alt="{{item.title}}">
 
             <div class="caption">
-                <h4>{{item.title}}</h4>
+                <h4 ng-bind-html="item.title  | highlight:search" ></h4>
                 <h4><strong class="label label-danger">Giá : {{item.price | currencyVND : ""}} VNĐ</strong></h4>
 
                 <p style="height: 120px;
-overflow: hidden;">{{item.desc}}</p>
+overflow: hidden;" ng-bind-html="item.desc  | highlight:search"></p>
 
                 <p>
                     <a class="btn btn-primary" role="button" ng-click="buy(item)">Mua <span ng-if="item.countCart > 0"
@@ -29,7 +29,11 @@ overflow: hidden;">{{item.desc}}</p>
                     <a ng-click="goToPage('detail',{id : item._id})" class="btn btn-default" role="button">Chi tiết</a>
                 </p>
             </div>
+
         </div>
     </div>
 
 </div>
+<style>
+    .highlighted { background: yellow }
+</style>

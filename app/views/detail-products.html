@@ -24,7 +24,7 @@
                         <button class="btn btn-primary" ng-click="updateItem(item)">OK</button>
                         <button class="btn-default btn" ng-click="quickEdit = false">Cancel</button>
                     </div>
-                    <strong class="label label-danger">Giá : {{item.price}}</strong>
+                    <strong class="label label-danger">Giá : {{item.price | currencyVND : "" }}</strong>
 
                     <p>{{item.desc}}</p>
                     <p><a class="btn btn-primary" role="button" ng-click="buy(item)">Mua <span ng-if="item.countCart > 0" class="badge">{{item.countCart}}</span></a></p>
